@@ -1,0 +1,43 @@
+Before clicking Send Request,make sure you start the node process e.g node/nodemon server.js
+Install `Rest Client` extension for Vs Code
+
+###
+POST http://localhost:3000/api/v1/user/register 
+Content-Type: application/json
+
+{
+"firstname" : "Test", "lastname" : "Tester", "email": "test@mail.com", "password": "12345678"
+}
+
+###
+POST http://localhost:3000/api/v1/user/login
+Content-Type: application/json
+
+{
+"email": "test@mail.com", "password": "12345678"
+}
+
+
+###
+POST http://localhost:3000/api/v1/user/refresh 
+Content-Type: application/json
+
+{
+    "refreshToken" : ""
+}
+
+####
+GET http://localhost:3000/api/v1/user/list
+Content-Type: application/json
+
+{
+    "token" : ""
+}
+
+###
+GET http://localhost:3000/api/v1/user/logout
+Content-Type: application/json
+
+{
+    "id" : ""
+}
