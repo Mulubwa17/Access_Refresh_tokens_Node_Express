@@ -2,7 +2,7 @@ Before clicking Send Request,make sure you start the node process e.g node/nodem
 Install `Rest Client` extension for Vs Code
 
 ###
-POST http://localhost:3000/api/v1/user/register 
+POST http://localhost:3000/api/v1/user/register
 Content-Type: application/json
 
 {
@@ -17,21 +17,21 @@ Content-Type: application/json
 "email": "test@mail.com", "password": "12345678"
 }
 
-
 ###
-POST http://localhost:3000/api/v1/user/refresh 
+POST http://localhost:3000/api/v1/user/refresh
 Content-Type: application/json
 
 {
-    "refreshToken" : ""
+    "refreshToken" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWU2NmY3MTQ2NDZmODMyNTBiYzEyNmYiLCJpYXQiOjE2NDI2NjExMzEsImV4cCI6MTY0MjY2MTQzMX0.v22TieKOBJ149oEepJGcH-6OJg12TUgjjFgILQTfOmQ"
 }
 
-####
+###
 GET http://localhost:3000/api/v1/user/list
 Content-Type: application/json
 
 {
-    "token" : ""
+
+    "token" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWU2NmY3MTQ2NDZmODMyNTBiYzEyNmYiLCJpYXQiOjE2NDI2NjE0MTgsImV4cCI6MTY0MjY2MTUzOH0.DyJpMhBtnAm1eIeWb1uje71_rnPKvoa2xyaVX50T7Rw"
 }
 
 ###

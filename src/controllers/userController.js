@@ -135,7 +135,6 @@ exports.deleteUser = async (req, res) => {
 exports.loginUser = async (req, res) => {
     try {
         const { email, password } = req.body;
-
         const user = await User.findOne({ email }).exec();
 
         if (!user) {
@@ -145,7 +144,6 @@ exports.loginUser = async (req, res) => {
         }
 
         const isMatch = await bcryptjs.compare(password, user.password);
-
         if (!isMatch) {
             return res.status(401).send({
                 message: 'Incorrect Password, Try again!',
@@ -153,7 +151,6 @@ exports.loginUser = async (req, res) => {
         }
 
         await user.generateAuthToken();
-
         await user.generateRefreshToken();
 
         res.status(200).send({
@@ -178,7 +175,6 @@ exports.refreshTokenUser = async (req, res) => {
         }
 
         await jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET);
-
         const user = await User.findOne( refreshToken._id ).exec();
 
         if (!user) {
@@ -187,17 +183,16 @@ exports.refreshTokenUser = async (req, res) => {
             });
         }
 
-        const newToken = await user.generateAuthToken();
-
+        await user.generateAuthToken();
         res.status(200).send({
-            data: newToken,
+            data: user.token,
             message: 'Refresh token successful',
         });
     } catch (error) {
+        console.log(error);
         res.status(500).send({
             error,
         });
-
     }
 }
 
